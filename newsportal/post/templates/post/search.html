@@ -1,0 +1,20 @@
+<!--наследуемся от шаблона default.html, который мы создавали-->
+{% extends 'newslist/default.html' %}
+
+<!-- Название у нас будет Добавить публикацию -->
+{% block title %}
+Search
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим поля формы, идентификатор которой был передан в url -->
+{% block content %}
+<h2> Страница поиска </h2>
+<hr>
+<h5> Укажите необходимую информацию, согласно которой будет выполнен поиск: </h5>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Search" />
+</form>
+
+{% endblock content %}
