@@ -5,21 +5,21 @@
 
 <!-- Название у нас будет News -->
 {% block title %}
-News
+Post
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим саму новость, идентификатор которой был передан в url -->
 {% block content %}
-<h1>{{ post_detail }}</h1>
+<h2>{{ postdetail }}</h2>
 
     <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#"> Автор: {{ post.authorUser }}, </a>
-              <small class="text-muted">дата публикации: {{ post.dateCreation|date:"d.m.Y" }}</small>
+              <a class="mr-2" href="#"> Автор: {{ postdetail.author }}, </a>
+              <small class="text-muted">дата публикации: {{ postdetail.dateCreation|date:"d.m.Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title|censor_w }}</a></h2>
-            <p class="article-content">{{ post.text|censor_w }}</p>
+<!--            <h2><a class="article-title" href="#">{{ postdetail.title|censor_w }}</a></h2>-->
+            <p class="article-content">{{ postdetail.text|censor_w }}</p>
 
           </div>
     </article>

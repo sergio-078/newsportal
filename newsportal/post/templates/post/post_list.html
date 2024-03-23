@@ -12,14 +12,14 @@
        <input type="submit" value="Найти" />
    </form>
 
-    {% for post in post_list %}
+    {% for post in postlist %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#"> Автор: {{ post.author }}, </a>
-              <small class="text-muted">дата публикации: {{ post.dateCreation|date:"d m Y" }}</small>
+              <small class="text-muted">дата публикации: {{ post.dateCreation|date:"d.m.Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title|censor_w }}</a></h2>
+            <h2><a class="article-title" href="{{ post.get_absolute_url }}">{{ post.title|censor_w }}</a></h2>
             <p class="article-content">{{ post.text|truncatechars:21|censor_w }}</p>
 
           </div>

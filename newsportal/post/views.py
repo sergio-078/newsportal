@@ -6,24 +6,25 @@ from .filters import PostFilter
 from .forms import PostForm, SearchForm
 
 
-def about_func(request):
-    return render(request, 'newslist/about.html', {'title': 'О портале новостей'})
+# def about_func(request):
+#     return render(request, 'newslist/about.html', {'title': 'О портале новостей'})
 
 
 class PostDetail(DetailView):
-    # Модель всё та же, но мы хотим получать информацию по отдельной статье
+    # Модель по которой мы хотим получать информацию по отдельной статье
     model = Post
     # Используем другой шаблон — post_detail.html
     template_name = "post/post_detail.html"
     # Название объекта, в котором будет выбранная пользователем статья
-    context_object_name = "post_detail"
+    context_object_name = "postdetail"
+    #queryset = Post.objects.get(pk=pk)
 
 
 class PostList(ListView):
     model = Post
     ordering = '-dateCreation'
     template_name = 'post/post_list.html'
-    context_object_name = 'post_list'
+    context_object_name = 'postlist'
     paginate_by = 2  # количество записей на странице
 
     # Переопределяем функцию получения списка товаров
